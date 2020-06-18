@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
 import Test from './Test'
+import NavigationBar from "./NavigationBar";
+
 export default class App extends Component {
   constructor(props){
     super(props);
@@ -11,7 +13,9 @@ export default class App extends Component {
 
   render(){
     return(
-        <Test></Test>
+        <NavigationBar>
+
+        </NavigationBar>
 
 
 
