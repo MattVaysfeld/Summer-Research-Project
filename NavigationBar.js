@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Icon from 'react-native-vector-icons/Foundation';
 
 
 
@@ -28,6 +29,11 @@ export default class Navigator extends Component {
                     name="Safety"
                     options={{
                         tabBarLabel: 'Safety',
+                        tabBarIcon: ({ color, size }) => (
+                            <Icon name='heart' size={size} color={color} style={{paddingTop:5}}/>
+                        ),
+
+
 
                     }}
 
@@ -53,6 +59,9 @@ export default class Navigator extends Component {
                     name="Data"
                     options={{
                         tabBarLabel: 'Data',
+                        tabBarIcon: ({ color, size }) => (
+                            <Icon name='graph-bar' size={size} color={color} />
+                        ),
                     }}
                 >
                     {() =>
