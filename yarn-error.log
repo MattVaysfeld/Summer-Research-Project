@@ -1,0 +1,57 @@
+Arguments: 
+  D:\node.exe C:\Users\Motya\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add react-native-paper
+
+PATH: 
+  C:\Users\Motya\Summer-Research-Project\node_modules\.bin;C:\Program Files (x86)\Razer Chroma SDK\bin;C:\Program Files\Razer Chroma SDK\bin;C:\Program Files (x86)\Razer\ChromaBroadcast\bin;C:\Program Files\Razer\ChromaBroadcast\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Windows Live\Shared;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\Common Files\Adobe\AGL;C:\WINDOWS\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Git\cmd;D:\;C:\Users\Motya\AppData\Local\Microsoft\WindowsApps;;D:\WebStorm 2019.3.4\bin;;C:\Users\Motya\AppData\Roaming\npm
+
+Yarn version: 
+  1.22.4
+
+Node version: 
+  14.2.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: EPERM: operation not permitted, unlink 'C:\Users\Motya\Summer-Research-Project\smart-world\node_modules\file-uri-to-path\test'
+
+npm manifest: 
+  {
+    "main": "node_modules/expo/AppEntry.js",
+    "scripts": {
+      "start": "expo start",
+      "android": "expo start --android",
+      "ios": "expo start --ios",
+      "web": "expo start --web",
+      "eject": "expo eject"
+    },
+    "dependencies": {
+      "@react-native-community/masked-view": "0.1.6",
+      "@react-navigation/bottom-tabs": "^5.5.2",
+      "@react-navigation/native": "^5.5.1",
+      "expo": "~37.0.3",
+      "native-base": "^2.13.12",
+      "react": "~16.9.0",
+      "react-dom": "~16.9.0",
+      "react-native": "https://github.com/expo/react-native/archive/sdk-37.0.1.tar.gz",
+      "react-native-gesture-handler": "~1.6.0",
+      "react-native-maps": "^0.27.1",
+      "react-native-reanimated": "~1.7.0",
+      "react-native-safe-area-context": "0.7.3",
+      "react-native-screens": "~2.2.0",
+      "react-native-web": "~0.11.7",
+      "react-navigation": "^4.3.9"
+    },
+    "devDependencies": {
+      "babel-preset-expo": "~8.1.0",
+      "@babel/core": "^7.8.6"
+    },
+    "private": true
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

@@ -23,7 +23,6 @@ export default class SafetyScreen extends Component{
                     <MapView.Marker
                             coordinate={{latitude:40.744992,longitude:-74.023731}}
                             title={"Howe"}
-                            description={"chad palace"}
                     />
                 </MapView>
             </View>
