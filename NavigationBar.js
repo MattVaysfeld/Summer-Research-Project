@@ -39,7 +39,7 @@ export default class Navigator extends Component {
 
                 >
                     {() =>
-                        <SafetyScreen/>
+                        <SafetyScreen onLocationSelection={this.props.onLocationSelection} currentLocation={this.props.currentLocation}/>
                     }
                 </Tab.Screen>
                 <Tab.Screen
@@ -52,7 +52,7 @@ export default class Navigator extends Component {
                     }}
                 >
                     {() =>
-                        <MapScreen/>
+                        <MapScreen onLocationSelection={this.props.onLocationSelection} currentLocation={this.props.currentLocation}/>
                     }
                 </Tab.Screen>
                 <Tab.Screen
@@ -65,7 +65,7 @@ export default class Navigator extends Component {
                     }}
                 >
                     {() =>
-                        <DataScreen/>
+                        <DataScreen onLocationSelection={this.props.onLocationSelection} currentLocation={this.props.currentLocation}/>
                     }
                 </Tab.Screen>
 

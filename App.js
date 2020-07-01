@@ -7,13 +7,19 @@ export default class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      currentBackgroundColor:'white'
+      currentLocation: "Howe"
     }
+  }
+
+  onLocationSelection = (loc) => {
+    this.setState({
+      currentLocation: loc
+    })
   }
 
   render(){
     return(
-        <NavigationBar>
+        <NavigationBar onLocationSelection={this.onLocationSelection} currentLocation={this.state.currentLocation}>
 
         </NavigationBar>
 

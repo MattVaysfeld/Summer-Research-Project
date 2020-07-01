@@ -31,13 +31,8 @@ export default class SafetyScreen extends Component{
     render(){
         return(
             <View style={{...styles.container, backgroundColor: this.state.currentBackgroundColor}}>
-                <Text>YES</Text>
-                <Image
-                    style={styles.pickleRick}
-                    source={{
-                        uri: "https://pmcdeadline2.files.wordpress.com/2019/10/shutterstock_editorial_10434333bm.jpg?crop=0px%2C0px%2C2903px%2C1627px&resize=681%2C383"
-                    }}
-                />
+                <Text> Location: {this.props.currentLocation}</Text>
+
                 <Button
                     title={"Change Background Color"}
                     onPress={this.onBackgroundButtonPress}

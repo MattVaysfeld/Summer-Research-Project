@@ -6,6 +6,11 @@ export default class SafetyScreen extends Component{
 
     constructor(props){
         super(props);
+        this.locations = [
+            {latitude:40.744992,longitude:-74.023731, title:"Howe"},
+            {latitude:40.744791, longitude: -74.025295, title: "Samuel C Williams Library"}
+
+        ]
     }
 
     render(){
@@ -20,10 +25,20 @@ export default class SafetyScreen extends Component{
                         longitudeDelta:.0042,
                     }}
                 >
-                    <MapView.Marker
-                            coordinate={{latitude:40.744992,longitude:-74.023731}}
-                            title={"Howe"}
-                    />
+                    {this.locations.map((locationData)=> {
+                        return(
+                            <MapView.Marker
+                                key={locationData.title}
+                                coordinate={{latitude:locationData.latitude,longitude:locationData.longitude}}
+                                title={locationData.title}
+                                onPress={()=>{
+                                  this.props.onLocationSelection(locationData.title)
+                                }}
+                            />
+                        )
+
+                    })}
+
                 </MapView>
             </View>
             )

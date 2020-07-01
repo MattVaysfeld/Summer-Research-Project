@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {StyleSheet, Text, View, Dimensions, Image, Button} from 'react-native';
 import {Icon, Container, Content, Header, Left, Right, Body, ListItem, Accordion} from 'native-base';
 import { List, Appbar } from 'react-native-paper';
-
 import {
     LineChart,
     BarChart,
