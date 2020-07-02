@@ -7,7 +7,7 @@ export default class SafetyScreen extends Component{
     constructor(props){
         super(props);
         this.locations = [
-            {latitude:40.744992,longitude:-74.023731, title:"Howe"},
+            {latitude:40.744992,longitude:-74.023731, title:"Howe", safety:"This location is currently safe"},
             {latitude:40.744791, longitude: -74.025295, title: "Samuel C Williams Library"}
 
         ]

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, Dimensions, Image, Button} from 'react-native';
+import {StyleSheet, Text, View, Dimensions, ScrollView, Image, Button} from 'react-native';
 import {Icon, Container, Content, Header, Left, Right, Body, ListItem, Accordion} from 'native-base';
 import { List, Appbar } from 'react-native-paper';
 import {
@@ -27,7 +27,7 @@ export default class SafetyScreen extends Component {
                 <Appbar.Header>
                     <Appbar.Content title="Data" />
                 </Appbar.Header>
-
+        <ScrollView>
             <List.AccordionGroup>
                 <List.Accordion title="Temperature" id="1">
                     <List.Item title={"Temp Graph"}/>
@@ -53,9 +53,9 @@ export default class SafetyScreen extends Component {
                         yAxisSuffix="°F"
                         yAxisInterval={1} // optional, defaults to 1
                         chartConfig={{
-                            backgroundGradientFrom: "#1E2923",
+                            backgroundGradientFrom: "white",
                             backgroundGradientFromOpacity: 0,
-                            backgroundGradientTo: "#08130D",
+                            backgroundGradientTo: "white",
                             backgroundGradientToOpacity: 0.5,
                             color: (opacity = 1) => `rgba(0, 0,0, ${opacity})`,
                             strokeWidth: 2, // optional, default 3
@@ -94,9 +94,9 @@ export default class SafetyScreen extends Component {
                         yAxisSuffix="Pa"
                         yAxisInterval={1} // optional, defaults to 1
                         chartConfig={{
-                            backgroundGradientFrom: "#1E2923",
+                            backgroundGradientFrom: "white",
                             backgroundGradientFromOpacity: 0,
-                            backgroundGradientTo: "#08130D",
+                            backgroundGradientTo: "white",
                             backgroundGradientToOpacity: 0.5,
                             color: (opacity = 1) => `rgba(0, 0,0, ${opacity})`,
                             strokeWidth: 2, // optional, default 3
@@ -135,9 +135,9 @@ export default class SafetyScreen extends Component {
                             yAxisSuffix="dB"
                             yAxisInterval={1} // optional, defaults to 1
                             chartConfig={{
-                                backgroundGradientFrom: "#1E2923",
+                                backgroundGradientFrom: "white",
                                 backgroundGradientFromOpacity: 0,
-                                backgroundGradientTo: "#08130D",
+                                backgroundGradientTo: "white",
                                 backgroundGradientToOpacity: 0.5,
                                 color: (opacity = 1) => `rgba(0, 0,0, ${opacity})`,
                                 strokeWidth: 2, // optional, default 3
@@ -152,10 +152,137 @@ export default class SafetyScreen extends Component {
                         />
                     </List.Accordion>
                 </View>
+                <View>
+                    <List.Accordion title="Humidity" id="4">
+                        <List.Item title="Humidity Graph" />
+                        <LineChart
+                            data={{
+                                labels: ["January", "February", "March", "April", "May", "June"],
+                                datasets: [
+                                    {
+                                        data: [
+                                            Math.random() * 100,
+                                            Math.random() * 100,
+                                            Math.random() * 100,
+                                            Math.random() * 100,
+                                            Math.random() * 100,
+                                            Math.random() * 100
+                                        ]
+                                    }
+                                ]
+                            }}
+                            width={Dimensions.get("window").width} // from react-native
+                            height={220}
+                            yAxisLabel=""
+                            yAxisSuffix="%"
+                            yAxisInterval={1} // optional, defaults to 1
+                            chartConfig={{
+                                backgroundGradientFrom: "white",
+                                backgroundGradientFromOpacity: 0,
+                                backgroundGradientTo: "white",
+                                backgroundGradientToOpacity: 0.5,
+                                color: (opacity = 1) => `rgba(0, 0,0, ${opacity})`,
+                                strokeWidth: 2, // optional, default 3
+                                barPercentage: 0.5,
+                                useShadowColorFromDataset: false // optional
+                            }}
+                            bezier
+                            style={{
+                                marginVertical: 8,
+                                borderRadius: 16
+                            }}
+                        />
+                    </List.Accordion>
+                </View>
+                <View>
+                    <List.Accordion title="Light Level" id="5">
+                        <List.Item title="Light Graph" />
+                        <LineChart
+                            data={{
+                                labels: ["January", "February", "March", "April", "May", "June"],
+                                datasets: [
+                                    {
+                                        data: [
+                                            Math.random() * 100,
+                                            Math.random() * 100,
+                                            Math.random() * 100,
+                                            Math.random() * 100,
+                                            Math.random() * 100,
+                                            Math.random() * 100
+                                        ]
+                                    }
+                                ]
+                            }}
+                            width={Dimensions.get("window").width} // from react-native
+                            height={220}
+                            yAxisLabel=""
+                            yAxisSuffix="lux"
+                            yAxisInterval={1} // optional, defaults to 1
+                            chartConfig={{
+                                backgroundGradientFrom: "white",
+                                backgroundGradientFromOpacity: 0,
+                                backgroundGradientTo: "white",
+                                backgroundGradientToOpacity: 0.5,
+                                color: (opacity = 1) => `rgba(0, 0,0, ${opacity})`,
+                                strokeWidth: 2, // optional, default 3
+                                barPercentage: 0.5,
+                                useShadowColorFromDataset: false // optional
+                            }}
+                            bezier
+                            style={{
+                                marginVertical: 8,
+                                borderRadius: 16
+                            }}
+                        />
+                    </List.Accordion>
+                </View>
+                <View>
+                    <List.Accordion title="Air Quality" id="6">
+                        <List.Item title="Air Quality Graph" />
+                        <LineChart
+                            data={{
+                                labels: ["January", "February", "March", "April", "May", "June"],
+                                datasets: [
+                                    {
+                                        data: [
+                                            Math.random() * 100,
+                                            Math.random() * 100,
+                                            Math.random() * 100,
+                                            Math.random() * 100,
+                                            Math.random() * 100,
+                                            Math.random() * 100
+                                        ]
+                                    }
+                                ]
+                            }}
+                            width={Dimensions.get("window").width} // from react-native
+                            height={220}
+                            yAxisLabel=""
+                            yAxisSuffix="ppm"
+                            yAxisInterval={1} // optional, defaults to 1
+                            chartConfig={{
+                                backgroundGradientFrom: "white",
+                                backgroundGradientFromOpacity: 0,
+                                backgroundGradientTo: "white",
+                                backgroundGradientToOpacity: 0.5,
+                                color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+                                strokeWidth: 2, // optional, default 3
+                                barPercentage: 0.5,
+                                useShadowColorFromDataset: false // optional
+                            }}
+                            bezier
+                            style={{
+                                marginVertical: 8,
+                                borderRadius: 16
+                            }}
+                        />
+                    </List.Accordion>
+                </View>
             </List.AccordionGroup>
-
+        </ScrollView>
 
             </Container>
+
 
         )
     }
