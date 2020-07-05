@@ -38,13 +38,13 @@ export default class SafetyScreen extends Component{
                 <Card>
                     <Card.Title title="Noise: Poor" />
                     <Card.Content>
-                        <Paragraph>The Noise is Poor since the readings on the graph show that the pressure is too high for minimal corona infections</Paragraph>
+                        <Paragraph>The Noise Level is Poor since the readings on the graph show that there is a lot of noise in the area which means there are more people in the area</Paragraph>
                     </Card.Content>
                 </Card>
                 <Card>
                     <Card.Title title="Humidity: Fair" />
                     <Card.Content>
-                        <Paragraph>The Humidity is Fair since the readings on the graph show that the temperature is alright for minimal corona infections</Paragraph>
+                        <Paragraph>The Humidity is Fair since the readings on the graph show that the humidity is alright for minimal corona infections</Paragraph>
                     </Card.Content>
                 </Card>
                 <Card>
