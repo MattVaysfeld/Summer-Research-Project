@@ -15,13 +15,21 @@ import {
 
 
 
+
 export default class SafetyScreen extends Component {
 
     constructor(props) {
         super(props);
+
     }
 
+
     render() {
+
+        const data = this.props.data
+        const currentData = data[this.props.currentLocation]
+
+
         return (
             <Container>
                 <Appbar.Header>
@@ -33,16 +41,16 @@ export default class SafetyScreen extends Component {
                     <List.Item title={"Temp Graph"}/>
                     <LineChart
                         data={{
-                            labels: ["January", "February", "March", "April", "May", "June"],
+                            labels: ["12:00", "12:30", "1:00", "1:30", "2:00", "2:30"],
                             datasets: [
                                 {
                                     data: [
-                                        Math.random() * 100,
-                                        Math.random() * 100,
-                                        Math.random() * 100,
-                                        Math.random() * 100,
-                                        Math.random() * 100,
-                                        Math.random() * 100
+                                        currentData["Temperature"]["12:00"],
+                                        currentData["Temperature"]["12:30"],
+                                        currentData["Temperature"]["1:00"],
+                                        currentData["Temperature"]["1:30"],
+                                        currentData["Temperature"]["2:00"],
+                                        currentData["Temperature"]["2:30"]
                                     ]
                                 }
                             ]

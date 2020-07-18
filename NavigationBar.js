@@ -10,6 +10,7 @@ import Icon from 'react-native-vector-icons/Foundation';
 import SafetyScreen from "./SafetyScreen";
 import MapScreen from "./MapScreen";
 import DataScreen from "./DataScreen";
+import CurrentScreen from "./CurrentScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -23,7 +24,7 @@ export default class Navigator extends Component {
         return(
         <NavigationContainer>
             <Tab.Navigator
-                initialRouteName={"Safety"}
+                initialRouteName={"Map"}
                 >
                 <Tab.Screen
                     name="Safety"
@@ -65,7 +66,7 @@ export default class Navigator extends Component {
                     }}
                 >
                     {() =>
-                        <DataScreen onLocationSelection={this.props.onLocationSelection} currentLocation={this.props.currentLocation}/>
+                        <DataScreen onLocationSelection={this.props.onLocationSelection} currentLocation={this.props.currentLocation} data={this.props.data}/>
                     }
                 </Tab.Screen>
 
