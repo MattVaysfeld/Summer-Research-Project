@@ -37,7 +37,7 @@ export default class App extends Component {
 
   onLocationSelection = (loc) => {
     this.setState({
-      currentLocation: loc
+        currentLocation: loc,
     })
   }
 

@@ -6,21 +6,32 @@ export default class SafetyScreen extends Component{
 
     constructor(props){
         super(props);
+        this.state = {
+            latitude: 40.744473,
+            longitude: -74.025199,
+        }
         this.locations = [
-            {latitude:40.744992,longitude:-74.023731, title:"Howe", safety:"This location is currently safe"},
-            {latitude:40.744791, longitude: -74.025295, title: "Samuel C Williams Library"},
-            {latitude:40.745279, longitude: -74.024985, title: "Palmer Hall"},
-            {latitude:40.743583, longitude: -74.027137, title: "Altorfer Lab"},
-            {latitude:40.742701, longitude: -74.026622, title: "Babbio"},
-            {latitude:40.744339, longitude: -74.025752, title: "Schaefer Gym"},
-            {latitude:40.745862, longitude: -74.024820, title: "Humphrey Hall"},
-            {latitude:40.743811, longitude: -74.025747, title: "Walker Gym"},
-            {latitude:40.743424, longitude: -74.025703, title: "Davis Hall"},
-            {latitude:40.745645, longitude: -74.025519, title: "Jonas Hall"},
-            {latitude:40.746801, longitude: -74.024153, title: "Castle Point"},
-            {latitude:40.743422, longitude: -74.027072, title: "River Terrace"},
+            {latitude:40.744992, longitude:-74.023731,  title:"Howe", color: "yellow"},
+            {latitude:40.744791, longitude: -74.025295, title: "Samuel C Williams Library", color: "red"},
+            {latitude:40.745279, longitude: -74.024985, title: "Palmer Hall", color: "green"},
+            {latitude:40.743583, longitude: -74.027137, title: "Altorfer Lab",color: "green"},
+            {latitude:40.742701, longitude: -74.026622, title: "Babbio", color: "yellow"},
+            {latitude:40.744339, longitude: -74.025752, title: "Schaefer Gym", color: "red"},
+            {latitude:40.745862, longitude: -74.024820, title: "Humphrey Hall", color: "yellow"},
+            {latitude:40.743811, longitude: -74.025747, title: "Walker Gym", color: "red"},
+            {latitude:40.743424, longitude: -74.025703, title: "Davis Hall", color: "green"},
+            {latitude:40.745645, longitude: -74.025519, title: "Jonas Hall", color: "red"},
+            {latitude:40.746801, longitude: -74.024153, title: "Castle Point", color: "red"},
+            {latitude:40.743422, longitude: -74.027072, title: "River Terrace", color: "green"},
 
         ]
+    }
+
+    changeRegion = (lat,long) => {
+        this.setState({
+            latitude: lat,
+            longitude:long,
+        })
     }
 
     render(){
@@ -29,8 +40,8 @@ export default class SafetyScreen extends Component{
                 <MapView
                     style={styles.mapView}
                     region={{
-                        latitude:40.744473,
-                        longitude:-74.025199,
+                        latitude: this.state.latitude,
+                        longitude: this.state.longitude,
                         latitudeDelta:.004,
                         longitudeDelta:.0042,
                     }}
@@ -41,8 +52,10 @@ export default class SafetyScreen extends Component{
                                 key={locationData.title}
                                 coordinate={{latitude:locationData.latitude,longitude:locationData.longitude}}
                                 title={locationData.title}
+                                pinColor={locationData.color}
                                 onPress={()=>{
-                                  this.props.onLocationSelection(locationData.title)
+                                    this.props.onLocationSelection(locationData.title)
+                                    this.changeRegion(locationData.latitude, locationData.longitude)
                                 }}
                             />
                         )

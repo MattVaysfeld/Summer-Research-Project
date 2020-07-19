@@ -20,7 +20,6 @@ export default class SafetyScreen extends Component {
 
     constructor(props) {
         super(props);
-
     }
 
 
@@ -86,12 +85,12 @@ export default class SafetyScreen extends Component {
                             datasets: [
                                 {
                                     data: [
-                                        Math.random() * 100,
-                                        Math.random() * 100,
-                                        Math.random() * 100,
-                                        Math.random() * 100,
-                                        Math.random() * 100,
-                                        Math.random() * 100
+                                        currentData["Pressure"]["12:00"],
+                                        currentData["Pressure"]["12:30"],
+                                        currentData["Pressure"]["1:00"],
+                                        currentData["Pressure"]["1:30"],
+                                        currentData["Pressure"]["2:00"],
+                                        currentData["Pressure"]["2:30"]
                                     ]
                                 }
                             ]
@@ -99,7 +98,7 @@ export default class SafetyScreen extends Component {
                         width={Dimensions.get("window").width} // from react-native
                         height={220}
                         yAxisLabel=""
-                        yAxisSuffix="Pa"
+                        yAxisSuffix="kPa"
                         yAxisInterval={1} // optional, defaults to 1
                         chartConfig={{
                             backgroundGradientFrom: "white",
