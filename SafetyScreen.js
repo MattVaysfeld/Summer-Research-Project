@@ -16,23 +16,23 @@ export default class SafetyScreen extends Component{
     tempDecider = () => {
         const data = this.props.data;
         const currentData = data[this.props.currentLocation];
+        const avg = this.avgOfData();
 
-        if (parseInt(currentData["Temperature"]["12:00"]) > 90){
+        if (avg > 80){
             if (this.state.temp !== "Good" ) {
                 this.setState({
                     temp: "Good"
                 })
             }
         }
-        else if ( 90 > parseInt(currentData["Temperature"]["12:00"]) && parseInt(currentData["Temperature"]["12:00"]) > 75){
-            console.log("pp")
+        else if ( 80 > avg && avg > 70){
             if (this.state.temp !== "Fair" ){
                 this.setState({
                 temp: "Fair"
             })
             }
         }
-        else if  (parseInt(currentData["Temperature"]["12:00"]) < 75){
+        else if  (avg <= 70){
             if (this.state.temp !== "Poor" ){
                 this.setState({
                     temp: "Poor"
@@ -41,6 +41,21 @@ export default class SafetyScreen extends Component{
 
         }
     };
+
+    avgOfData = () =>{
+        const data = this.props.data;
+        const currentData = data[this.props.currentLocation];
+        let sum = 0;
+        let array = Object.values(currentData["Temperature"]);
+        for(let i = 0; i < array.length; i++ ){
+            sum += parseInt( array[i], 10 ); //don't forget to add the base
+        }
+
+        const avg = sum / array.length;
+        console.log(avg)
+        return avg;
+    }
+
 
 
     render(){
@@ -55,6 +70,8 @@ export default class SafetyScreen extends Component{
 
 
         this.tempDecider();
+        this.avgOfData();
+
 
         return(
             <Container style={styles.container}>
@@ -69,7 +86,7 @@ export default class SafetyScreen extends Component{
                     <Card.Title title=  {"Temperature: " + this.state.temp} />
                     <Card.Content>
                         <Paragraph>The Temperature is {this.state.temp} since the readings on the graph show that the temperature is {this.state.temp} for minimal corona infections</Paragraph>
-                    </Card.Content>
+                </Card.Content>
                 </Card>
                 <Card>
                     <Card.Title title="Pressure: Good" />
