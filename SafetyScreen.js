@@ -8,12 +8,54 @@ export default class SafetyScreen extends Component{
     constructor(props){
         super(props);
         this.state = {
-            currentPresses: 0,
-            currentBackgroundColor:"white"
+            temp: ""
         }
     }
 
+
+    tempDecider = () => {
+        const data = this.props.data;
+        const currentData = data[this.props.currentLocation];
+
+        if (parseInt(currentData["Temperature"]["12:00"]) > 90){
+            if (this.state.temp !== "Good" ) {
+                this.setState({
+                    temp: "Good"
+                })
+            }
+        }
+        else if ( 90 > parseInt(currentData["Temperature"]["12:00"]) && parseInt(currentData["Temperature"]["12:00"]) > 75){
+            console.log("pp")
+            if (this.state.temp !== "Fair" ){
+                this.setState({
+                temp: "Fair"
+            })
+            }
+        }
+        else if  (parseInt(currentData["Temperature"]["12:00"]) < 75){
+            if (this.state.temp !== "Poor" ){
+                this.setState({
+                    temp: "Poor"
+                })
+            }
+
+        }
+    };
+
+
     render(){
+
+        const data = this.props.data;
+        const currentData = data[this.props.currentLocation];
+
+        console.log(currentData)
+        console.log(this.props.currentLocation)
+        console.log(this.state.temp)
+
+
+
+        this.tempDecider();
+
         return(
             <Container style={styles.container}>
                 <ScrollView>
@@ -24,9 +66,9 @@ export default class SafetyScreen extends Component{
 
                     <Title style={styles.TitleText}> Location: {this.props.currentLocation}</Title>
                 <Card>
-                    <Card.Title title="Temperature: Good"/>
+                    <Card.Title title=  {"Temperature: " + this.state.temp} />
                     <Card.Content>
-                        <Paragraph>The Temperature is Good since the readings on the graph show that the temperature is ideal for minimal corona infections</Paragraph>
+                        <Paragraph>The Temperature is {this.state.temp} since the readings on the graph show that the temperature is {this.state.temp} for minimal corona infections</Paragraph>
                     </Card.Content>
                 </Card>
                 <Card>
@@ -96,4 +138,4 @@ const styles = StyleSheet.create({
 
 
 
-})
+});

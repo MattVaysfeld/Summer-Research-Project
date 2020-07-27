@@ -40,7 +40,7 @@ export default class Navigator extends Component {
 
                 >
                     {() =>
-                        <SafetyScreen onLocationSelection={this.props.onLocationSelection} currentLocation={this.props.currentLocation} />
+                        <SafetyScreen onLocationSelection={this.props.onLocationSelection} currentLocation={this.props.currentLocation} data={this.props.data} />
                     }
                 </Tab.Screen>
                 <Tab.Screen

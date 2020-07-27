@@ -41,6 +41,7 @@ export default class App extends Component {
     })
   }
 
+
   render(){
     return(
         <NavigationBar onLocationSelection={this.onLocationSelection} currentLocation={this.state.currentLocation} data={this.state.data}>
