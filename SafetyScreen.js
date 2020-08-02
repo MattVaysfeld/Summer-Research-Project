@@ -8,7 +8,8 @@ export default class SafetyScreen extends Component{
     constructor(props){
         super(props);
         this.state = {
-            temp: ""
+            temp: "",
+            pressure: ""
         }
     }
 
@@ -16,23 +17,23 @@ export default class SafetyScreen extends Component{
     tempDecider = () => {
         const data = this.props.data;
         const currentData = data[this.props.currentLocation];
-        const avg = this.avgOfData();
+        const tempAvg = this.avgOfTempData();
 
-        if (avg > 80){
+        if (tempAvg > 80){
             if (this.state.temp !== "Good" ) {
                 this.setState({
                     temp: "Good"
                 })
             }
         }
-        else if ( 80 > avg && avg > 70){
+        else if ( 80 > tempAvg && tempAvg > 70){
             if (this.state.temp !== "Fair" ){
                 this.setState({
                 temp: "Fair"
             })
             }
         }
-        else if  (avg <= 70){
+        else if  (tempAvg <= 70){
             if (this.state.temp !== "Poor" ){
                 this.setState({
                     temp: "Poor"
@@ -42,7 +43,36 @@ export default class SafetyScreen extends Component{
         }
     };
 
-    avgOfData = () =>{
+    pressureDecider = () => {
+        const data = this.props.data;
+        const currentData = data[this.props.currentLocation];
+        const pressureAvg = this.avgOfPressureData();
+
+        if (pressureAvg > 101){
+            if (this.state.pressure !== "Good" ) {
+                this.setState({
+                    pressure: "Good"
+                })
+            }
+        }
+        else if ( 100 > pressureAvg && pressureAvg > 99){
+            if (this.state.pressure !== "Fair" ){
+                this.setState({
+                    pressure: "Fair"
+                })
+            }
+        }
+        else if  (pressureAvg <= 99){
+            if (this.state.pressure !== "Poor" ){
+                this.setState({
+                    pressure: "Poor"
+                })
+            }
+
+        }
+    };
+
+    avgOfTempData = () =>{
         const data = this.props.data;
         const currentData = data[this.props.currentLocation];
         let sum = 0;
@@ -51,9 +81,23 @@ export default class SafetyScreen extends Component{
             sum += parseInt( array[i], 10 ); //don't forget to add the base
         }
 
-        const avg = sum / array.length;
-        console.log(avg)
-        return avg;
+        const tempAvg = sum / array.length;
+        console.log(tempAvg)
+        return tempAvg;
+    }
+
+    avgOfPressureData = () =>{
+        const data = this.props.data;
+        const currentData = data[this.props.currentLocation];
+        let sum = 0;
+        let array = Object.values(currentData["Pressure"]);
+        for(let i = 0; i < array.length; i++ ){
+            sum += parseInt( array[i], 10 ); //don't forget to add the base
+        }
+
+        const pressureAvg = sum / array.length;
+        console.log(pressureAvg)
+        return pressureAvg;
     }
 
 
@@ -69,8 +113,10 @@ export default class SafetyScreen extends Component{
 
 
 
+
         this.tempDecider();
-        this.avgOfData();
+        this.pressureDecider();
+
 
 
         return(
@@ -89,9 +135,9 @@ export default class SafetyScreen extends Component{
                 </Card.Content>
                 </Card>
                 <Card>
-                    <Card.Title title="Pressure: Good" />
+                    <Card.Title title={"Pressure: " + this.state.pressure} />
                     <Card.Content>
-                        <Paragraph>The Pressure is Good since the readings on the graph show that the pressure is ideal for minimal corona infections</Paragraph>
+                        <Paragraph>The Pressure is {this.state.pressure} since the readings on the graph show that the pressure is {this.state.pressure} for minimal corona infections</Paragraph>
                     </Card.Content>
                 </Card>
                 <Card>

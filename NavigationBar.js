@@ -10,7 +10,7 @@ import Icon from 'react-native-vector-icons/Foundation';
 import SafetyScreen from "./SafetyScreen";
 import MapScreen from "./MapScreen";
 import DataScreen from "./DataScreen";
-import CurrentScreen from "./CurrentScreen";
+import PIScreen from "./PIScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -67,6 +67,19 @@ export default class Navigator extends Component {
                 >
                     {() =>
                         <DataScreen onLocationSelection={this.props.onLocationSelection} currentLocation={this.props.currentLocation}  data={this.props.data}/>
+                    }
+                </Tab.Screen>
+                <Tab.Screen
+                    name="PI"
+                    options={{
+                        tabBarLabel: 'PI',
+                        tabBarIcon: ({ color, size }) => (
+                            <Icon name='clock' size={size} color={color} />
+                        ),
+                    }}
+                >
+                    {() =>
+                        <PIScreen onLocationSelection={this.props.onLocationSelection} currentLocation={this.props.currentLocation}  data={this.props.data}/>
                     }
                 </Tab.Screen>
 

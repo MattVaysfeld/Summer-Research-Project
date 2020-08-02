@@ -16,7 +16,7 @@ import {
 
 
 
-export default class SafetyScreen extends Component {
+export default class DataScreen extends Component {
 
     constructor(props) {
         super(props);
