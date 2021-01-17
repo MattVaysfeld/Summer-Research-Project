@@ -5,3 +5,5 @@ the area is safe or not. (Firebase, React Native)
 
 • Published an IEEE paper “Streamlining Smart Cities to Create Safer Spaces”
 https://ieeexplore.ieee.org/document/9298083/keywords#keywords
+
+![Alt text](https://github.com/MattVaysfeld/Summer-Research-Project/blob/master/SummerResearchProjectApplication.png "Title")
