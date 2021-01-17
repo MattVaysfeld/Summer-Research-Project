@@ -5,10 +5,10 @@ import * as firebase from 'firebase';
 
 // Initialize Firebase
 const firebaseConfig = {
-    apiKey: "AIzaSyCqr30ZuUuGkKnK9qXMYX4p0Yj6k5jsOV0",
-    authDomain: "summer-research-project-2180b.firebaseapp.com",
-    databaseURL: "https://summer-research-project-2180b.firebaseio.com",
-    storageBucket: "gs://summer-research-project-2180b.appspot.com",
+    apiKey: "",
+    authDomain: "",
+    databaseURL: "",
+    storageBucket: "",
     };
 
 
