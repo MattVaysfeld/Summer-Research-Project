@@ -1,0 +1,14 @@
+CHANGELOG.txt
+LICENSE.txt
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+enviroplus/__init__.py
+enviroplus/gas.py
+enviroplus/noise.py
+enviroplus.egg-info/PKG-INFO
+enviroplus.egg-info/SOURCES.txt
+enviroplus.egg-info/dependency_links.txt
+enviroplus.egg-info/requires.txt
+enviroplus.egg-info/top_level.txt

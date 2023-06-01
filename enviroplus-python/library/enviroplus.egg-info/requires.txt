@@ -1,0 +1,11 @@
+ads1015
+astral
+font-roboto
+fonts
+ltr559
+paho-mqtt
+pimoroni-bme280
+pms5003
+pytz
+sounddevice
+st7735
